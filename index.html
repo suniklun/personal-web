@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我佮台語，沓沓滴滴</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .video-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .responsive-video {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            padding-bottom: 56.25%; /* 16:9 比例 */
+            height: 0;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        
+        .responsive-video iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .signature-image {
+            width: 150px;
+            height: auto;
+            display: block;
+            margin: 20px auto 0 auto;
+        }
+
+        .drive-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 20px auto;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid #333;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .drive-button:hover {
+            background-color: #f0f0f0;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header style="text-align: center;">
+        <h1>我佮台語，沓沓滴滴</h1>
+        <h1 style="font-family: 'Times New Roman', Times, serif;">Guá Kap Tâi-gí，Ta̍p-ta̍p-tih-tih</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">頭頁</a></li>
+                <li><a href="profile.html">紹介</a></li>
+                <li><a href="awards.html">著獎</a></li>
+                <li><a href="work.html">工課</a></li>
+                <li><a href="publications.html">著作</a></li>
+                <li><a href="certifications.html">認證</a></li>
+                <li><a href="media.html">相片佮影片</a></li>
+                <li><a href="courses.html">課程</a></li>
+                <li><a href="other.html">互動</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="home" style="text-align: center;">
+        <h2 class="animated-text">有夢，上媠</h2>
+        <p>想欲知影我生做圓抑扁、想欲知影我做偌濟代誌</p>
+        <p>來看我佮台語，沓沓滴滴</p>
+        
+        <div class="video-container">
+            <div class="responsive-video">
+                <iframe src="https://www.youtube.com/embed/C8m_IibLeoc?si=NZVx2zTzFwzd_z9l" 
+                        title="YouTube video player" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <img 
+            src="照片/頭頁簽名.png" 
+            alt="簽名" 
+            class="signature-image"
+        > 
+             
+        <div>
+            <a href="https://drive.google.com/drive/folders/1cmEm3_7FtcATy4XeD8yI6FMDRI92ssk7?usp=sharing" 
+               target="_blank" 
+               class="drive-button">
+                ~資料彙整~
+            </a>
+        </div>
+    </section>
+    <footer style="text-align: center;">
+        <p style="font-family: 'Times New Roman', Times, serif;"></p>2025 翊倫的所在</p>
+    </footer>
+</body>
+</html>
