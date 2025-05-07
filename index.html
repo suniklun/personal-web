@@ -11,6 +11,14 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .video-wrapper {
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
         }
         
         .responsive-video {
@@ -20,7 +28,6 @@
             padding-bottom: 56.25%; /* 16:9 比例 */
             height: 0;
             overflow: hidden;
-            margin: 0 auto;
         }
         
         .responsive-video iframe {
@@ -54,6 +61,12 @@
             background-color: #f0f0f0;
             transform: scale(1.05);
         }
+
+        section {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
     </style>
 </head>
 <body>
@@ -80,17 +93,19 @@
         <p>來看我佮台語，沓沓滴滴</p>
         
         <div class="video-container">
-            <div class="responsive-video">
-                <iframe src="https://www.youtube.com/embed/C8m_IibLeoc?si=NZVx2zTzFwzd_z9l" 
-                        title="YouTube video player" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" 
-                        allowfullscreen></iframe>
+            <div class="video-wrapper">
+                <div class="responsive-video">
+                    <iframe src="https://www.youtube.com/embed/C8m_IibLeoc?si=NZVx2zTzFwzd_z9l" 
+                            title="YouTube video player" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin" 
+                            allowfullscreen></iframe>
+                </div>
             </div>
         </div>
 
         <img 
-            src="頭頁簽名.png" 
+            src="照片/頭頁簽名.png" 
             alt="簽名" 
             class="signature-image"
         > 
