@@ -7,18 +7,25 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         .responsive-container {
-            position: relative;
             width: 100%;
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .iframe-wrapper {
+            width: 100%;
+            margin: 0 auto 30px;
+            display: flex;
+            justify-content: center;
         }
         
         .responsive-iframe {
             width: 100%;
             height: 800px;
             border: none;
-            margin-bottom: 30px;
+            max-width: 800px;
         }
 
         @media screen and (max-width: 768px) {
@@ -31,6 +38,12 @@
             .responsive-iframe {
                 height: 500px;
             }
+        }
+
+        section {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
         }
     </style>
 </head>
@@ -56,10 +69,14 @@
         <h2 class="animated-text">互動</h2>
         <div class="responsive-container">
             <h3>表單回饋</h3>
-            <iframe class="responsive-iframe" src="https://forms.gle/njZqVCTdSZWbQbe8A" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
+            <div class="iframe-wrapper">
+                <iframe class="responsive-iframe" src="https://forms.gle/njZqVCTdSZWbQbe8A" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
+            </div>
             
             <h3>心得BLOG</h3>
-            <iframe class="responsive-iframe" src="https://sun1ik8lun5.blogspot.com/" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
+            <div class="iframe-wrapper">
+                <iframe class="responsive-iframe" src="https://sun1ik8lun5.blogspot.com/" frameborder="0" marginheight="0" marginwidth="0">載入中…</iframe>
+            </div>
         </div>
     </section>
 
