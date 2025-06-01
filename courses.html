@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>課程</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .nav-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .nav-toggle {
+            background-color: #f1f1f1;
+            color: #333;
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            max-width: 800px;
+            border: none;
+            text-align: center;
+            outline: none;
+            font-size: 1.2em;
+            margin: 10px auto;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-toggle:hover {
+            background-color: #ddd;
+        }
+
+        .nav-toggle:after {
+            content: '\002B';
+            color: #333;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .nav-toggle.active:after {
+            content: "\2212";
+        }
+
+        .nav-menu {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: white;
+        }
+
+        .nav-menu.active {
+            max-height: 500px;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-menu li {
+            margin: 5px 0;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: inherit;
+            transition: background-color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            background-color: #515151;
+        }
+
+        @media screen and (min-width: 768px) {
+            .nav-toggle {
+                display: none;
+            }
+
+            .nav-menu {
+                max-height: none;
+            }
+
+            .nav-menu ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .nav-menu li {
+                margin: 0;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <header style="text-align: center;">
+        <h1>課程</h1>
+        <div class="nav-container">
+            <button class="nav-toggle">選單</button>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">頭頁</a></li>
+                    <li><a href="profile.html">紹介</a></li>
+                    <li><a href="awards.html">著獎</a></li>
+                    <li><a href="work.html">工課</a></li>
+                    <li><a href="publications.html">著作</a></li>
+                    <li><a href="certifications.html">認證</a></li>
+                    <li><a href="media.html">相片佮影片</a></li>
+                    <li><a href="courses.html">課程</a></li>
+                    <li><a href="other.html">互動</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="courses" style="text-align: center;">
+        
+        <table class="course-table">
+            <tr>
+                <th>時間</th>
+                <th>課程內容</th>
+                <th>證明</th>
+            </tr>
+            <tr>
+                <td>2024.08.10</td>
+                <td>【行過綠川：2024高雄文學地景系列】乾麵、港畔、夕陽：我的高雄文青時光/講師:鄭順聰</td>
+                <td><a href="https://drive.google.com/file/d/1MpyJIgEbxjtup1MrCpjmjq3gHG_7FnWX/view?usp=drive_link" target="_blank" class="cert-button">GO</a></td>
+            </tr>
+            <tr>
+                <td>2024.08.25</td>
+                <td>「夜婆失眠拋拋走」台羅教案應用hām台語輸入法研習【高雄特別場】</td>
+                <td><a href="https://drive.google.com/file/d/18ggmbhLqZDp3m77WBKtHURNZ0qy_3LC8/view?usp=drive_link" target="_blank" class="cert-button">GO</a></td>
+            </tr>
+            <tr>
+                <td>2024.11.16</td>
+                <td>【2024年高雄城市書展】路寒袖x王昭華「他們的母語如何書寫，臺語歌曲如何雅俗共賞」</td>
+                <td><a href="https://drive.google.com/file/d/1jS78WQBkb8pFmBa3jJWFrJWqzic5Oww6/view?usp=drive_link" target="_blank" class="cert-button">GO</a></td>
+            </tr>
+            <tr>
+                <td>2024.12.07</td>
+                <td>十作實作《教育部臺灣台語常用詞辭典》應用工作坊-高雄場</td>
+                <td><a href="" target="_blank" class="cert-button">尚未開課</a></td>
+            </tr>
+            <tr>
+                <td>2024.12.21</td>
+                <td>臺灣台語學科術語詞彙編譯與沉浸式教學分享交流會-南部場</td>
+                <td><a href="" target="_blank" class="cert-button">尚未開課</a></td>
+            </tr>
+        </table>
+    </section>
+
+    <footer style="text-align: center;">
+        <p style="font-family: 'Times New Roman', Times, serif;"></p>2025 翊倫的所在</p>
+
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+
+            navToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            function checkScreenSize() {
+                if (window.innerWidth >= 768) {
+                    navMenu.classList.add('active');
+                } else {
+                    navMenu.classList.remove('active');
+                    navToggle.classList.remove('active');
+                }
+            }
+
+            checkScreenSize();
+            window.addEventListener('resize', checkScreenSize);
+        });
+    </script>
+</body>
+</html>

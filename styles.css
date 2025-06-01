@@ -1,0 +1,906 @@
+/* 基礎響應式設置 */
+html {
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef, #f8f9fa);
+    color: #212529;
+    font-family: 'Source Han Serif', 'Times New Roman', Times, serif;
+    cursor: url('images/circle-cursor.png'), auto;
+    transition: background 0.5s ease;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* 頁面容器 */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 頁首樣式 */
+header {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* 導航選單 */
+.nav-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.nav-toggle {
+    display: none; /* 預設隱藏漢堡選單按鈕 */
+}
+
+.nav-menu {
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px 0;
+    animation: fadeIn 0.7s ease-out;
+    display: block;
+    max-height: none;
+    overflow: visible;
+}
+
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 15px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: 0 10px;
+    width: auto;
+    min-width: 0;
+}
+
+.nav-menu ul::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-menu li {
+    margin: 0;
+    animation: slideIn 0.7s ease-out;
+    animation-fill-mode: both;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+.nav-menu li:nth-child(1) { animation-delay: 0.1s; }
+.nav-menu li:nth-child(2) { animation-delay: 0.15s; }
+.nav-menu li:nth-child(3) { animation-delay: 0.2s; }
+.nav-menu li:nth-child(4) { animation-delay: 0.25s; }
+.nav-menu li:nth-child(5) { animation-delay: 0.3s; }
+.nav-menu li:nth-child(6) { animation-delay: 0.35s; }
+.nav-menu li:nth-child(7) { animation-delay: 0.4s; }
+.nav-menu li:nth-child(8) { animation-delay: 0.45s; }
+.nav-menu li:nth-child(9) { animation-delay: 0.5s; }
+
+.nav-menu a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #666;
+    font-size: 1.1em;
+    transition: all 0.5s ease;
+    border-radius: 8px;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-menu a:hover {
+    background-color: rgba(150, 150, 150, 0.07);
+    transform: translateY(-7px);
+    box-shadow: 0 10px 20px rgba(150, 150, 150, 0.15);
+    color: #333;
+}
+
+/* 內容區域 */
+section {
+    width: 90%;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(200, 200, 200, 0.05);
+    text-align: center;
+    animation: fadeIn 1.2s ease-out; /* 增加頁面載入動畫速度和持續時間 */
+}
+
+/* 標題樣式 */
+h1, h2, h3 {
+    color: #333;
+}
+
+h1 {
+    font-size: 2.8em; /* 從 3.5em 改為 2.8em */
+    margin: 25px 0; /* 調整外邊距 */
+    text-align: center;
+    font-family: 'Source Han Serif', 'Times New Roman', Times, serif;
+    transition: color 0.3s ease;
+    word-wrap: break-word;
+}
+
+h2 {
+    font-size: 2.8em; /* 增加 h2 字體大小 */
+    margin: 25px 0; /* 增加 h2 外邊距 */
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.8em; /* 增加 h3 字體大小 */
+    margin: 15px 0; /* 增加 h3 外邊距 */
+    text-align: center;
+}
+
+/* 文字樣式 */
+p, li {
+    color: #000000; /* 改為黑色 */
+    font-size: 1.3em;
+    line-height: 1.8;
+    margin: 10px 0;
+    text-align: center;
+    word-wrap: break-word;
+    font-weight: 500; /* 增加字體粗細 */
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.1); /* 添加輕微陰影增加可讀性 */
+}
+
+/* 按鈕樣式 */
+.drive-button, .cert-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease; /* 增加過渡速度 */
+    padding: 15px 30px; /* 調整 padding */
+    font-size: 1.3em; /* 調整字體大小 */
+    border-radius: 10px; /* 調整圓角 */
+    box-shadow: 0 4px 8px rgba(150, 150, 150, 0.1); /* 調整預設陰影 */
+}
+
+.drive-button:hover, .cert-button:hover {
+    transform: translateY(-7px) scale(1.08); /* 增加上移和縮放幅度 */
+    box-shadow: 0 12px 24px rgba(150, 150, 150, 0.3); /* 增加陰影強度 */
+    background: linear-gradient(135deg, #ffffff, #e9ecef, #ffffff); /* 調整漸層顏色 */
+    color: #222; /* 調整文字顏色 */
+}
+
+/* 表格樣式 */
+.course-table {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #ffffff;
+    box-shadow: 0 6px 12px rgba(150, 150, 150, 0.1); /* 增加表格陰影 */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.course-table th, 
+.course-table td {
+    padding: 20px; /* 增加表格內邊距 */
+    border: 1px solid #dee2e6;
+    text-align: center;
+    white-space: normal;
+    word-wrap: break-word;
+    font-size: 1.4em; /* 增加表格字體大小 */
+}
+
+.course-table th {
+    background: linear-gradient(135deg, #f8f9fa, #ffffff, #f8f9fa);
+    color: #555; /* 調整表頭文字顏色 */
+    font-weight: 500;
+    font-size: 1.5em; /* 增加表頭字體大小 */
+}
+
+.course-table tr:hover {
+    background-color: rgba(150, 150, 150, 0.05); /* 增加 hover 背景透明度 */
+    transition: background-color 0.3s ease;
+}
+
+/* 圖片樣式 */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}
+
+/* 影片容器 */
+.video-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.responsive-video {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+
+.responsive-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* 頁尾樣式 */
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+    margin-top: auto;
+}
+
+/* 動畫文字 */
+.animated-text {
+    animation: textAnimation 3s infinite alternate;
+}
+
+@keyframes textAnimation {
+    0% { color: #666; }
+    50% { color: #333; }
+    100% { color: #666; }
+}
+
+/* 響應式斷點 */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 960px;
+    }
+    
+    h1 {
+        font-size: 2.4em; /* 調整響應式字體大小 */
+    }
+    
+    h2 {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        max-width: 720px;
+    }
+    
+    h1 {
+        font-size: 2.2em; /* 調整響應式字體大小 */
+    }
+    
+    h2 {
+        font-size: 1.8em;
+    }
+    
+    section {
+        padding: 30px;
+    }
+    
+    .nav-menu ul {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 540px;
+    }
+    
+    h1 {
+        font-size: 2em; /* 調整響應式字體大小 */
+    }
+    
+    h2 {
+        font-size: 1.6em;
+    }
+    
+    p, li {
+        font-size: 1em;
+        line-height: 1.7;
+        color: #000000; /* 確保在移動設備上也保持黑色 */
+        font-weight: 500;
+    }
+    
+    .nav-toggle {
+        display: flex;
+        background-color: #f1f1f1;
+        color: #333;
+        cursor: pointer;
+        padding: 12px;
+        width: 100%;
+        max-width: 800px;
+        margin: 10px auto;
+        border: none;
+        text-align: center;
+        outline: none;
+        font-size: 1.1em;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .nav-toggle:hover {
+        background-color: #ddd;
+    }
+
+    .nav-toggle:after {
+        content: '\002B';
+        color: #333;
+        font-weight: bold;
+        margin-left: 10px;
+    }
+
+    .nav-toggle.active:after {
+        content: "\2212";
+    }
+
+    .nav-menu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-out;
+        padding: 0;
+    }
+
+    .nav-menu.active {
+        max-height: 500px;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 10px 0;
+        overflow-x: hidden;
+    }
+
+    .nav-menu li {
+        width: 100%;
+        animation: fadeIn 0.5s ease-out;
+    }
+    
+    .nav-menu li:nth-child(1) { animation-delay: 0.1s; }
+    .nav-menu li:nth-child(2) { animation-delay: 0.12s; }
+    .nav-menu li:nth-child(3) { animation-delay: 0.14s; }
+    .nav-menu li:nth-child(4) { animation-delay: 0.16s; }
+    .nav-menu li:nth-child(5) { animation-delay: 0.18s; }
+    .nav-menu li:nth-child(6) { animation-delay: 0.2s; }
+    .nav-menu li:nth-child(7) { animation-delay: 0.22s; }
+    .nav-menu li:nth-child(8) { animation-delay: 0.24s; }
+    .nav-menu li:nth-child(9) { animation-delay: 0.26s; }
+
+    .nav-menu a {
+        padding: 12px 20px;
+        font-size: 1.1em;
+        text-align: center;
+    }
+    
+    .drive-button, .cert-button {
+        padding: 12px 24px;
+        font-size: 1.2em;
+        box-shadow: 0 2px 4px rgba(150, 150, 150, 0.1);
+    }
+    
+    .drive-button:hover, .cert-button:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 8px 16px rgba(150, 150, 150, 0.2);
+    }
+    
+    section {
+        padding: 30px;
+        margin: 20px auto;
+        box-shadow: 0 4px 8px rgba(150, 150, 150, 0.1);
+    }
+
+    h1 {
+        font-size: 3em;
+        margin: 20px 0;
+    }
+
+    h2 {
+        font-size: 2em;
+        margin: 15px 0;
+    }
+
+    p, li {
+        font-size: 1.1em;
+        line-height: 1.7;
+    }
+    
+    .course-table th, 
+    .course-table td {
+        padding: 15px;
+        font-size: 1.2em;
+    }
+
+    .course-table th {
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    h1 {
+        font-size: 1.6em; /* 調整響應式字體大小 */
+    }
+    
+    h2 {
+        font-size: 1.4em;
+    }
+    
+    h3 {
+        font-size: 1.2em;
+    }
+    
+    .course-table th, 
+    .course-table td {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+    
+    section {
+        padding: 15px;
+        margin: 5px;
+    }
+    
+    .nav-menu ul {
+        gap: 8px;
+    }
+    
+    .nav-menu a {
+        padding: 6px 12px;
+        font-size: 0.9em;
+    }
+}
+
+/* 列印樣式 */
+@media print {
+    body {
+        background: none;
+        color: #000;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: none;
+        padding: 0;
+    }
+    
+    .drive-button, .cert-button {
+        border: 1px solid #000;
+        background: none;
+        color: #000;
+    }
+    
+    .course-table {
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+}
+
+/* Specific styles for each page */
+#home {
+    background: linear-gradient(135deg, #000000, #ffffff,#000000);
+}
+#profile {
+    background: linear-gradient(135deg, #000000, #ffffff,#000000);
+}
+#awards {
+    background: linear-gradient(135deg, #000000, #ffffff,#000000);
+}
+
+#work {
+    background: linear-gradient(135deg,#000000, #ffffff,#000000);
+}
+
+#publications {
+    background: linear-gradient(135deg,#000000, #ffffff,#000000 );
+}
+
+#certifications {
+    background: linear-gradient(135deg,#000000, #ffffff,#000000);
+}
+
+#media {
+    background: linear-gradient(135deg, #000000, #ffffff,#000000);
+}
+
+#courses {
+    background: linear-gradient(135deg,#000000, #ffffff,#000000);
+}
+#other {
+    background: linear-gradient(135deg,#000000, #ffffff,#000000);
+}
+
+nav ul, section ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+section ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+section ul li {
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 5px 0;
+}
+
+.drive-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #f8f9fa, #ffffff, #f8f9fa);
+    color: #666;
+    text-decoration: none;
+    border-radius: 8px;
+    font-family: 'Source Han Serif', 'Times New Roman', Times, serif;
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e9ecef;
+}
+
+.drive-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    background: linear-gradient(135deg, #ffffff, #f8f9fa, #ffffff);
+    color: #333;
+}
+
+.course-table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 1200px;
+}
+
+.course-table th, 
+.course-table td {
+    padding: 15px;
+    border: 1px solid #dee2e6;
+    font-family: 'Source Han Serif', 'Times New Roman', Times, serif;
+    font-size: 1.2em;
+}
+
+.course-table th {
+    background: linear-gradient(135deg, #f8f9fa, #ffffff, #f8f9fa);
+    color: #666;
+    font-size: 1.3em;
+    font-weight: 500;
+    border: 1px solid #dee2e6;
+}
+
+.course-table tr:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+    transition: background-color 0.3s ease;
+}
+
+.cert-button {
+    display: inline-block;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, #f8f9fa, #ffffff, #f8f9fa);
+    color: #666;
+    text-decoration: none;
+    border-radius: 6px;
+    font-family: 'Source Han Serif', 'Times New Roman', Times, serif;
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e9ecef;
+}
+
+.cert-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(200, 200, 200, 0.08);
+    background: linear-gradient(135deg, #ffffff, #f8f9fa, #ffffff);
+    color: #333;
+}
+
+/* 響應式 iframe（YouTube、BLOG、表單） */
+.responsive-iframe {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    /* 預設寬度與高度，適合電腦版 */
+    width: 560px;
+    height: 315px;
+    max-width: 100%;
+}
+
+@media (max-width: 900px) {
+    .responsive-iframe {
+        width: 100%;
+        height: 300px;
+    }
+}
+@media (max-width: 600px) {
+    .responsive-iframe {
+        width: 100%;
+        height: 200px;
+    }
+}
+
+/* 響應式表格：小螢幕時橫向滾動 */
+.course-table, .course-table th, .course-table td {
+    word-break: break-word;
+}
+@media (max-width: 900px) {
+    .course-table, .course-table th, .course-table td {
+        font-size: 1em;
+        padding: 10px;
+    }
+    section {
+        padding: 20px;
+        margin: 10px;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    h2 {
+        font-size: 1.3em;
+    }
+}
+@media (max-width: 600px) {
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+        text-align: center;
+    }
+    
+    section {
+        width: 95%;
+        padding: 20px;
+        margin: 10px auto;
+    }
+    
+    section ul {
+        width: 100%;
+        padding: 0;
+    }
+    
+    section ul li {
+        text-align: center;
+        width: 100%;
+    }
+    
+    .course-table {
+        width: 95%;
+        margin: 10px auto;
+    }
+}
+
+/* 讓表格在小螢幕可橫向滑動 */
+@media (max-width: 600px) {
+    .course-table {
+        overflow-x: auto;
+        display: block;
+        width: 100%;
+        min-width: 300px;
+        box-sizing: border-box;
+    }
+}
+
+/* 讓ul在小螢幕自動換行 */
+@media (max-width: 600px) {
+    section ul {
+        display: block;
+        text-align: center;
+    }
+    section ul li {
+        text-align: left;
+        font-size: 1em;
+    }
+}
+
+/* 確保電腦版導航列樣式 */
+@media (min-width: 769px) {
+    .nav-toggle {
+        display: none;
+    }
+    .nav-menu {
+        display: block !important;
+        max-height: none !important;
+        overflow: visible !important;
+    }
+    .nav-menu ul {
+        flex-direction: row; /* 強制橫向排列 */
+        flex-wrap: nowrap;
+        justify-content: center; /* 電腦版居中 */
+        padding: 0;
+        gap: 20px; /* 調整電腦版項目間距 */
+        overflow-x: auto;
+    }
+     .nav-menu li {
+        animation: slideIn 0.7s ease-out; /* 恢復桌面版下的項目動畫和延遲 */
+        animation-fill-mode: both;
+    }
+    .nav-menu li:nth-child(1) { animation-delay: 0.1s; }
+    .nav-menu li:nth-child(2) { animation-delay: 0.15s; }
+    .nav-menu li:nth-child(3) { animation-delay: 0.2s; }
+    .nav-menu li:nth-child(4) { animation-delay: 0.25s; }
+    .nav-menu li:nth-child(5) { animation-delay: 0.3s; }
+    .nav-menu li:nth-child(6) { animation-delay: 0.35s; }
+    .nav-menu li:nth-child(7) { animation-delay: 0.4s; }
+    .nav-menu li:nth-child(8) { animation-delay: 0.45s; }
+    .nav-menu li:nth-child(9) { animation-delay: 0.5s; }
+     .nav-menu a {
+        padding: 12px 25px;
+        font-size: 1.2em;
+    }
+}
+
+/* 頁面切換動畫 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(40px); /* 增加 Y 軸移動距離 */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-200%); /* 增加 X 軸移動距離 */
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* 按鈕動畫 */
+.drive-button, .cert-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease; /* 增加過渡速度 */
+}
+
+.drive-button:hover, .cert-button:hover {
+    transform: translateY(-7px) scale(1.08); /* 增加上移和縮放幅度 */
+    box-shadow: 0 12px 24px rgba(150, 150, 150, 0.3); /* 增加陰影強度 */
+    background: linear-gradient(135deg, #ffffff, #e9ecef, #ffffff); /* 調整漸層顏色 */
+    color: #222; /* 調整文字顏色 */
+}
+
+/* 頁面內容動畫 */
+section {
+    animation: fadeIn 1.2s ease-out; /* 增加頁面載入動畫速度和持續時間 */
+    padding: 60px; /* 增加 section 內邊距 */
+    margin: 40px auto; /* 增加 section 外邊距 */
+    box-shadow: 0 6px 12px rgba(150, 150, 150, 0.1); /* 增加 section 陰影 */
+}
+
+/* 響應式表格：小螢幕時橫向滾動 */
+/* 在更多尺寸下啟用橫向滾動 */
+@media (max-width: 992px) {
+    .course-table {
+        overflow-x: auto;
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        /* 移除 min-width，讓表格在較小尺寸下更靈活 */
+        /* min-width: 300px; */
+    }
+     .course-table th, 
+    .course-table td {
+        padding: 15px; /* 調整表格內邊距 */
+        font-size: 1.2em; /* 調整表格字體大小 */
+    }
+
+    .course-table th {
+        font-size: 1.3em; /* 調整表頭字體大小 */
+    }
+}
+
+@media (max-width: 768px) {
+     .course-table {
+        /* 確保在更小的螢幕下也能正常滾動 */
+        overflow-x: auto;
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+     }
+     .course-table th, 
+    .course-table td {
+        padding: 12px; /* 調整表格內邊距 */
+        font-size: 1.1em; /* 調整表格字體大小 */
+    }
+
+    .course-table th {
+        font-size: 1.2em; /* 調整表頭字體大小 */
+    }
+}
+
+@media (max-width: 600px) {
+     .course-table {
+        /* 確保在最小螢幕下滾動和寬度設置 */
+        overflow-x: auto;
+        display: block;
+        width: 100%;
+        min-width: 300px; /* 在非常小的螢幕下設置最小寬度 */
+        box-sizing: border-box;
+    }
+     .course-table th, 
+    .course-table td {
+        padding: 10px; /* 調整表格內邊距 */
+        font-size: 1em; /* 調整表格字體大小 */
+    }
+
+    .course-table th {
+        font-size: 1.1em; /* 調整表頭字體大小 */
+    }
+}
+
+/* 確保所有尺寸下單元格內容正常換行 */
+.course-table th, .course-table td {
+    word-break: break-word;
+    white-space: normal;
+}

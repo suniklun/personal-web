@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>著作</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .award-link {
+            color: inherit; /* 繼承父元素顏色 */
+            text-decoration: none; /* 去掉底線 */
+            transition: transform 0.3s, text-shadow 0.3s; /* 添加過渡效果 */
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .award-link:hover {
+            transform: scale(1.1); /* 略顯放大 */
+            font-weight: bold; /* 加粗 */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* 添加陰影 */
+        }
+
+        section {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+
+        section li {
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        h2, h3 {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .collapsible {
+            background-color: #f1f1f1;
+            color: #333;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            max-width: 800px;
+            border: none;
+            text-align: center;
+            outline: none;
+            font-size: 1.2em;
+            margin: 10px auto;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .active, .collapsible:hover {
+            background-color: #ddd;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 18px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: white;
+        }
+
+        .collapsible:after {
+            content: '\002B';
+            color: #333;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .active:after {
+            content: "\2212";
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .nav-toggle {
+            background-color: #515151;
+            color: #333;
+            cursor: pointer;
+            padding: 15px;
+            width: 100%;
+            max-width: 800px;
+            border: none;
+            text-align: center;
+            outline: none;
+            font-size: 1.2em;
+            margin: 10px auto;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-toggle:hover {
+            background-color: #ddd;
+        }
+
+        .nav-toggle:after {
+            content: '\002B';
+            color: #333;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .nav-toggle.active:after {
+            content: "\2212";
+        }
+
+        .nav-menu {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: white;
+        }
+
+        .nav-menu.active {
+            max-height: 500px;
+        }
+
+        .nav-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-menu li {
+            margin: 5px 0;
+        }
+
+        .nav-menu a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: inherit;
+            transition: background-color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            background-color: #f1f1f1;
+        }
+
+        @media screen and (min-width: 768px) {
+            .nav-toggle {
+                display: none;
+            }
+
+            .nav-menu {
+                max-height: none;
+            }
+
+            .nav-menu ul {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .nav-menu li {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header style="text-align: center;">
+        <h1>著作</h1>
+        <div class="nav-container">
+            <button class="nav-toggle">選單</button>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html">頭頁</a></li>
+                    <li><a href="profile.html">紹介</a></li>
+                    <li><a href="awards.html">著獎</a></li>
+                    <li><a href="work.html">工課</a></li>
+                    <li><a href="publications.html">著作</a></li>
+                    <li><a href="certifications.html">認證</a></li>
+                    <li><a href="media.html">相片佮影片</a></li>
+                    <li><a href="courses.html">課程</a></li>
+                    <li><a href="other.html">互動</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="publications" style="text-align: center;">
+        <button class="collapsible">詩</button>
+        <div class="content">
+            <ul>
+                <li><a class="award-link" href="https://drive.google.com/file/d/1zpJefABub2Ic3zy2wxIA0bROPBhpZ3cM/view?usp=drive_link" target="_blank">〈阮的約束〉</a></li>
+                <li><a class="award-link" href="https://drive.google.com/file/d/1_itu1QVv_kqgOT_5nP2fblf1ecfgrqYm/view?usp=drive_link" target="_blank">〈體會〉</a></li>
+            </ul>
+        </div>
+
+        <button class="collapsible">文</button>
+        <div class="content">
+            <ul>
+                <li><a class="award-link" href="https://drive.google.com/file/d/1SpoppYCYcevkDFNzVeEl-Y_reE778I0h/view?usp=sharing" target="_blank">〈無拚，呔會知影輸贏〉</a></li>
+            </ul>
+        </div>
+
+        <button class="collapsible">書</button>
+        <div class="content">
+            <ul>
+                <!-- 這裡可以添加書籍相關的連結 -->
+            </ul>
+        </div>
+    </section>
+
+    <footer style="text-align: center;">
+        <p style="font-family: 'Times New Roman', Times, serif;"></p>2025 翊倫的所在</p>
+    </footer>
+
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+
+            navToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            function checkScreenSize() {
+                if (window.innerWidth >= 768) {
+                    navMenu.classList.add('active');
+                } else {
+                    navMenu.classList.remove('active');
+                    navToggle.classList.remove('active');
+                }
+            }
+
+            checkScreenSize();
+            window.addEventListener('resize', checkScreenSize);
+        });
+    </script>
+</body>
+</html>
