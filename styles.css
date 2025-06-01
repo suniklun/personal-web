@@ -381,20 +381,23 @@ footer {
     }
 
     .nav-menu.active {
-        max-height: 500px;
+        max-height: 800px; /* 增加最大高度以確保所有選項都能顯示 */
+        overflow-y: auto; /* 將 overflow 改為 auto，允許垂直滾動 */
+        overflow-x: hidden; /* 確保橫向不滾動 */
     }
 
     .nav-menu ul {
         flex-direction: column;
         align-items: center;
-        gap: 15px;
-        padding: 10px 0;
-        overflow-x: hidden;
+        gap: 20px; /* 稍微增加項目間距 */
+        padding: 15px 0; /* 稍微增加上下內邊距 */
     }
 
     .nav-menu li {
         width: 100%;
         animation: fadeIn 0.5s ease-out;
+        animation-fill-mode: both;
+        display: block;
     }
     
     .nav-menu li:nth-child(1) { animation-delay: 0.1s; }
@@ -408,7 +411,7 @@ footer {
     .nav-menu li:nth-child(9) { animation-delay: 0.26s; }
 
     .nav-menu a {
-        padding: 12px 20px;
+        padding: 15px 20px; /* 稍微增加連結內邊距 */
         font-size: 1.1em;
         text-align: center;
     }
@@ -769,29 +772,12 @@ section ul li {
         overflow: visible !important;
     }
     .nav-menu ul {
-        flex-direction: row; /* 強制橫向排列 */
+        flex-direction: row;
         flex-wrap: nowrap;
-        justify-content: center; /* 電腦版居中 */
+        justify-content: center;
         padding: 0;
-        gap: 20px; /* 調整電腦版項目間距 */
+        gap: 20px;
         overflow-x: auto;
-    }
-     .nav-menu li {
-        animation: slideIn 0.7s ease-out; /* 恢復桌面版下的項目動畫和延遲 */
-        animation-fill-mode: both;
-    }
-    .nav-menu li:nth-child(1) { animation-delay: 0.1s; }
-    .nav-menu li:nth-child(2) { animation-delay: 0.15s; }
-    .nav-menu li:nth-child(3) { animation-delay: 0.2s; }
-    .nav-menu li:nth-child(4) { animation-delay: 0.25s; }
-    .nav-menu li:nth-child(5) { animation-delay: 0.3s; }
-    .nav-menu li:nth-child(6) { animation-delay: 0.35s; }
-    .nav-menu li:nth-child(7) { animation-delay: 0.4s; }
-    .nav-menu li:nth-child(8) { animation-delay: 0.45s; }
-    .nav-menu li:nth-child(9) { animation-delay: 0.5s; }
-     .nav-menu a {
-        padding: 12px 25px;
-        font-size: 1.2em;
     }
 }
 
